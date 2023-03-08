@@ -51,9 +51,6 @@ Create Express routers using express.Router
 
     A value containing the list of errors caught
 
-
-
     In any other case, respond with the list of all the users including the newly added user
-
 
     Test your endpoints using Postman. Try to add a user without a name, or a fruit without a color.

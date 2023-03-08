@@ -19,6 +19,7 @@ let fruits = [
 ]
 const express = require('express');
 const router = express.Router();
+const {body, validationResult} = require('express-validator')
 
 router.get('/', (req,res) => {
     try{
@@ -39,18 +40,27 @@ router.get('/:id', (req,res) => {
     }
 })
 
-router.post('/',(req,res) => {
-    try{
-        let newFruit = req.body
-        if(typeof newFruit === "object"){
-            fruits.push(newFruit)
-            res.status(200).send("new fruit added!")
-        }else{
-            res.status(404).send("you must supply an object!")
+router.post(
+    '/',
+    body("color").not().isEmpty().trim().withMessage("fruits must have a color!"),
+    (req,res) => {
+        const errors = validationResult(req);
+        if(!errors.isEmpty()){
+            res.status(400).json({errors: errors.array()})
+        } else {
+            try{
+                let newFruit = req.body
+                if(typeof newFruit === "object"){
+                    fruits.push(newFruit)
+                    res.status(200).send(fruits)
+                }else{
+                    res.status(404).send("you must supply an object!")
+                }
+                
+            }catch(err){console.error(err)
+                res.status(404).send("not found")}
         }
         
-    }catch(err){console.error(err)
-        res.status(404).send("not found")}
 })
 
 router.put('/:id',(req,res) =>{

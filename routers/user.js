@@ -48,18 +48,19 @@ router.post(
         const errors = validationResult(req)
         if(!errors.isEmpty()){
             return res.status(400).json({errors: errors.array() });
-        }
-        try{
-            let newUser = req.body
-            if(typeof newUser === "object"){
-                users.push(newUser)
-                res.status(200).send(users)
-            }else{
-                res.status(404).send("you must supply an object!")
+        } else {
+            try{
+                let newUser = req.body
+                if(typeof newUser === "object"){
+                 users.push(newUser)
+                    res.status(200).send(users)
+                }else{
+                    res.status(404).send("you must supply an object!")
+                }
+            }catch(err){console.error(err)
+                res.status(404).send("not found")
             }
-            
-        }catch(err){console.error(err)
-            res.status(404).send("not found")}
+        }
 })
 
 router.put('/:id',(req,res) =>{
