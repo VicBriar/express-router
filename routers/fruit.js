@@ -31,12 +31,26 @@ router.get('/', (req,res) => {
 
 router.get('/:id', (req,res) => {
     try{
-        index = req.params.id-1;
+        let index = req.params.id-1;
         res.status(200).send(fruits[index]);
     }catch(err){
         console.error(err)
         res.status(404).send("not found")
     }
+})
+
+router.post('/',(req,res) => {
+    try{
+        let newFruit = req.body
+        if(typeof newFruit === "object"){
+            fruits.push(newFruit)
+            res.status(200).send("new fruit added!")
+        }else{
+            res.status(404).send("you must supply an object!")
+        }
+        
+    }catch(err){console.error(err)
+        res.status(404).send("not found")}
 })
 
 module.exports = router;

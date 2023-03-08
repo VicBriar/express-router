@@ -5,6 +5,8 @@ const userRouter = require('./routers/user')
 const fruitRouter = require('./routers/fruit')
 
 
+app.use(express.urlencoded({extended: true}))
+app.use(express.json({extended: true}))
 
 // Express Routes
 app.use("/users",userRouter)

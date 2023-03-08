@@ -13,9 +13,9 @@ Create Express routers using express.Router
 
 [X] Test your endpoints using Postman
 
-[] POST Users
+[X] POST Users
 [] PUT Users
 [] DELETE Users
-[] POST Fruits
+[X] POST Fruits
 [] PUT Fruits
 [] DELETE Fruits
