@@ -1,9 +1,9 @@
 # express-router
 Create Express routers using express.Router
 
-[] Create a new directory dedicated to your express routers
+[X] Create a new directory dedicated to your express routers
 
-[] Copy the users array into the users router file and the the fruits array into the fruits router file.
+[X] Copy the users array into the users router file and the the fruits array into the fruits router file.
 
 [] Define an express router for the users route. One for getting all the users on the list of users and one for getting a particular user on the list of users (e.g. /users/2 returns the 2nd user).
 
