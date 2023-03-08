@@ -41,13 +41,19 @@ router.get('/:id', (req,res) => {
     }
 })
 
-router.post('/',
+router.post(
+    '/',
+    body('name').not().isEmpty().trim(),
     (req,res) => {
+        const errors = validationResult(req)
+        if(!errors.isEmpty()){
+            return res.status(400).json({errors: errors.array() });
+        }
         try{
             let newUser = req.body
             if(typeof newUser === "object"){
                 users.push(newUser)
-                res.status(200).send("new user added!")
+                res.status(200).send(users)
             }else{
                 res.status(404).send("you must supply an object!")
             }

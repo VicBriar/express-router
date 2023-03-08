@@ -23,11 +23,11 @@ Create Express routers using express.Router
 ------
 [X] Run npm install to install the necessary dependencies for this assignment
 
-[] Require the “express-validator” package in your users router.
+[X] Require the “express-validator” package in your users router.
 
-[] Import both the check and validationResult functions from the Express Validator package`
+[X] Import both the check and validationResult functions from the Express Validator package`
 
-[] In the POST request when creating a user, include a parameter in between your endpoint and your callback function. This parameter should check for the “name” field in the request body. The name field in the request body should NOT BE EMPTY or be just whitespace.
+[X] In the POST request when creating a user, include a parameter in between your endpoint and your callback function. This parameter should check for the “name” field in the request body. The name field in the request body should NOT BE EMPTY or be just whitespace.
 
     Validate the result of your request object, and store that reference in a variable named errors.
 
