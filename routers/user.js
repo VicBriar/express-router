@@ -20,6 +20,7 @@ let users = [
 const express = require('express');
 const router = express.Router()
 
+
 router.get('/', (req,res) => {
     try{
         res.status(200).send(users)
@@ -44,13 +45,33 @@ router.post('/',(req,res) => {
         let newUser = req.body
         if(typeof newUser === "object"){
             users.push(newUser)
-            res.status(200).send("new fruit added!")
+            res.status(200).send("new user added!")
         }else{
             res.status(404).send("you must supply an object!")
         }
         
     }catch(err){console.error(err)
         res.status(404).send("not found")}
+})
+
+router.put('/:id',(req,res) =>{
+    try{
+        let index = req.params.id-1;
+        let update = req.body;
+        let user = users[index]
+        if(user && update){
+            for(const key in update){
+                user[key] = update[key]
+                console.log(`user.key is ${user[key]} and update.key is ${update[key]}`)
+            }
+            res.status(200).send("item updated")
+        }else{
+            res.status(404).send("not found")   
+        }
+    }catch(err){
+        console.error(err)
+        res.status(404).send("not found")
+    }
 })
 
 module.exports = router;

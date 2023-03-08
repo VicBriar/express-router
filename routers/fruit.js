@@ -53,4 +53,24 @@ router.post('/',(req,res) => {
         res.status(404).send("not found")}
 })
 
+router.put('/:id',(req,res) =>{
+    try{
+        let index = req.params.id-1;
+        let update = req.body;
+        let fruit = fruits[index]
+        if(fruit && update){
+            for(const key in update){
+                fruit[key] = update[key]
+                console.log(`user.key is ${fruit[key]} and update.key is ${update[key]}`)
+            }
+            res.status(200).send("item updated")
+        }else{
+            res.status(404).send("not found")   
+        }
+    }catch(err){
+        console.error(err)
+        res.status(404).send("not found")
+    }
+})
+
 module.exports = router;
