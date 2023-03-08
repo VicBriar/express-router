@@ -40,7 +40,7 @@ Create Express routers using express.Router
     In any other case, respond with the list of all the users including the newly added user
 
 
-[] In the POST request when creating a fruit, include a parameter in between your endpoint and your callback function. This parameter should check for the “color” field in the request body. The color field in the request body should NOT BE EMPTY or be just whitespace.
+[x] In the POST request when creating a fruit, include a parameter in between your endpoint and your callback function. This parameter should check for the “color” field in the request body. The color field in the request body should NOT BE EMPTY or be just whitespace.
 
     Validate the result of your request object, and store that reference in a variable named errors.
 
