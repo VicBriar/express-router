@@ -19,3 +19,41 @@ Create Express routers using express.Router
 [X] POST Fruits
 [X PUT Fruits
 [X] DELETE Fruits
+
+------
+[X] Run npm install to install the necessary dependencies for this assignment
+
+[] Require the “express-validator” package in your users router.
+
+[] Import both the check and validationResult functions from the Express Validator package`
+
+[] In the POST request when creating a user, include a parameter in between your endpoint and your callback function. This parameter should check for the “name” field in the request body. The name field in the request body should NOT BE EMPTY or be just whitespace.
+
+    Validate the result of your request object, and store that reference in a variable named errors.
+
+    Create a condition that checks if there are errors caught in the validation result, respond with the JSON which contains:
+
+    A key named error
+
+    A value containing the list of errors caught
+
+    In any other case, respond with the list of all the users including the newly added user
+
+
+[] In the POST request when creating a fruit, include a parameter in between your endpoint and your callback function. This parameter should check for the “color” field in the request body. The color field in the request body should NOT BE EMPTY or be just whitespace.
+
+    Validate the result of your request object, and store that reference in a variable named errors.
+
+
+    Create a condition that checks if there are errors caught in the validation result, respond with the JSON which contains:
+
+    A key named error
+
+    A value containing the list of errors caught
+
+
+
+    In any other case, respond with the list of all the users including the newly added user
+
+
+    Test your endpoints using Postman. Try to add a user without a name, or a fruit without a color.

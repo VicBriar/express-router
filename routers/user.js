@@ -19,6 +19,7 @@ let users = [
 ]
 const express = require('express');
 const router = express.Router()
+const {body, validationResult} = require('express-validator')
 
 
 router.get('/', (req,res) => {
@@ -40,18 +41,19 @@ router.get('/:id', (req,res) => {
     }
 })
 
-router.post('/',(req,res) => {
-    try{
-        let newUser = req.body
-        if(typeof newUser === "object"){
-            users.push(newUser)
-            res.status(200).send("new user added!")
-        }else{
-            res.status(404).send("you must supply an object!")
-        }
-        
-    }catch(err){console.error(err)
-        res.status(404).send("not found")}
+router.post('/',
+    (req,res) => {
+        try{
+            let newUser = req.body
+            if(typeof newUser === "object"){
+                users.push(newUser)
+                res.status(200).send("new user added!")
+            }else{
+                res.status(404).send("you must supply an object!")
+            }
+            
+        }catch(err){console.error(err)
+            res.status(404).send("not found")}
 })
 
 router.put('/:id',(req,res) =>{
