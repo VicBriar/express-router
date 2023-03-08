@@ -12,3 +12,10 @@ Create Express routers using express.Router
 [X] Use your express routers within your main express server
 
 [X] Test your endpoints using Postman
+
+[] POST Users
+[] PUT Users
+[] DELETE Users
+[] POST Fruits
+[] PUT Fruits
+[] DELETE Fruits
