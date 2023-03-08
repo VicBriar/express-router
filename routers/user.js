@@ -17,3 +17,26 @@ let users = [
         age: 22
     }
 ]
+const express = require('express');
+const router = express.Router()
+
+router.get('/', (req,res) => {
+    try{
+        res.status(200).send(users)
+    }catch(err){
+        console.error(err)
+        res.status(404).send("not found")
+    }
+})
+
+router.get('/:id', (req,res) => {
+    try{
+        index = req.params.id-1;
+        res.status(200).send(users[index]);
+    }catch(err){
+        console.error(err)
+        res.status(404).send("not found")
+    }
+})
+
+module.exports = router;
