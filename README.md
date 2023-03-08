@@ -15,7 +15,7 @@ Create Express routers using express.Router
 
 [X] POST Users
 [X] PUT Users
-[] DELETE Users
+[X] DELETE Users
 [X] POST Fruits
 [X PUT Fruits
-[] DELETE Fruits
+[X] DELETE Fruits

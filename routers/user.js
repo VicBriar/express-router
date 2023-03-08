@@ -73,5 +73,20 @@ router.put('/:id',(req,res) =>{
         res.status(404).send("not found")
     }
 })
+router.delete('/:id',(req,res) =>{
+    try{let index = req.params.id - 1;
+     let item = users[index];
+     if(item){
+       users.splice(index,1)
+       res.status(200).send("item deleted!") 
+     }else{
+         res.status(404).send("not found")  
+     }
+ }catch (err) {
+     console.error(err)
+     res.status(404).send("not found")
+ }
+     
+ })
 
 module.exports = router;
